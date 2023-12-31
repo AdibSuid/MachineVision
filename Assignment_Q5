@@ -1,0 +1,25 @@
+#Group Convolution 
+
+self.conv1 =
+nn.Conv2d(3,6,5,groups=3)
+self.conv2 =
+nn.Conv2d(6,16,5,groups=2)
+self.conv3 =
+nn.Conv2d(16,20,3,groups=4)
+
+#Depthwise Separable Convolution 
+
+class depthwise_separable_conv(nn.Module):
+def __init__(self, nin, nout):
+super(depthwise_separable_conv,
+self).__init__()
+self.depthwise = nn.Conv2d(nin,
+nin, kernel_size=3, padding=1,
+groups=nin)
+self.pointwise = nn.Conv2d(nin,
+nout, kernel_size=1)
+def forward(self, x):
+out = self.depthwise(x)
+out = self.pointwise(out)
+return out
+
