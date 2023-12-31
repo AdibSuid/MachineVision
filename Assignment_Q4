@@ -1,0 +1,9 @@
+#Use this code to replace the optimizer under #cross-entropy loss
+
+#STEP DECAY :
+
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
+
+#EXPONENTIAL DECAY : 
+
+scheduler = ExponentialLR(optimizer, gamma=0.9)
